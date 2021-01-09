@@ -28,9 +28,9 @@
     } tipo_curso;
 
 
-    void inserir_disciplinas(tipo_disciplina*m, int n,int i)
-{
-    printf("Quantas disciplinas est„o disponiveis no isep ? \n"); scanf("%d",&n);
+    void inserir_disciplinas(tipo_disciplina*m)
+{ int n;int i;
+    printf("Quantas disciplinas est√£o disponiveis no isep ? \n"); scanf("%d",&n);
     for(i=0;i<n;i++){
 
     printf("nome_disciplina:");fgets((*m).nome_disciplina,MAX,stdin);
@@ -42,30 +42,36 @@
 
 }
 
-void preencher_alunos(tipo_aluno*m, int n, int i)
-{
+void preencher_alunos(tipo_aluno*m)
+{  int i;int n;
     printf("Quantos alunos quer inserir na base de dados? \n"); scanf("%d",&n);
 
     for(i=0;i<n;i++){
-    printf("codigo:");fgets((*m).codigo,10,stdin);
-    printf("disciplinas:");scanf("%d",&(*m).disciplinas);getchar();
-    printf("nome:");scanf("%d",&(*m).nome);getchar();
-    printf("genero:");fgets((*m).genero,1,stdin);
-    printf("ano:");fgets((*m).ano,MAX,stdin);
+
+    printf("codigo:\n");fgets((*m).codigo,10,stdin);
+    printf("ano:\n");fgets((*m).ano,MAX,stdin);
+    printf("genero:\n");fgets((*m).genero,1,stdin);
+    printf("disciplin1as:\n");scanf("%d",&(*m).disciplinas);getchar();
+    printf("nome:\n");scanf("%d",&(*m).nome);getchar();
+
     }
 }
 
        void definir_curso(tipo_curso*m)
-    {
+    { printf("\ndefina o curso \n");
     printf("disciplinas:");scanf("%d",&(*m).disciplinas);getchar();
-    printf("nome:");fgets((*m).nome,MAX,stdin);
+    printf("nome:\n");fgets((*m).nome,MAX,stdin);
 }
 
 
 int main(){
-int n,int i;
+tipo_aluno alunox;
+tipo_curso cursoe;
+tipo_disciplina disciplinasb;
 
-preencher_alunos(n,i);
+preencher_alunos(&alunox);
+definir_curso(&cursoe);
+inserir_disciplinas(&disciplinasb);
     return 0;
 
 }
